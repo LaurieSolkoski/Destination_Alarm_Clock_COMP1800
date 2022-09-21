@@ -7,6 +7,7 @@
 ## General Info
 This browser based web application to ...
 * Hi my name is Bardia. I'm excited about this project because I get to learn something new.
+* Hi my name is Laurie :) I'm excited to start this project because I get to *maybe* use geospatial analysis, which I sorta like doing
 	
 ## Technologies
 Technologies used for this project:
@@ -19,7 +20,6 @@ Technologies used for this project:
 Content of the project folder:
 
 ```
- Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
 └── README.md
