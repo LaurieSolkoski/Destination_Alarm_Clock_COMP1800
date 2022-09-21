@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Bardia. I'm excited about this project because I get to learn something new.
 	
 ## Technologies
 Technologies used for this project:
