@@ -19,6 +19,8 @@
         crossorigin="anonymous"></script>
 
     <!-- Other libraries go here -->
+    <!--Bootstrap Icons-->
+    <link href="https://mdbootstrap.com/docs/standard/forms/search/">
 
     <!-- Link to styles of your own -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
@@ -34,6 +36,10 @@
           position:relative;
         }
 
+        .form-control{
+          border-width:20px;
+          border-color: teal;
+        }
     </style>
 
 </head>
@@ -83,10 +89,19 @@
           </div>
           
         </div>
-        <img id="logo" src="./images/image.jpg" height="50">
+        <img id="logo" src="images/DAC_Logo.jpg" height="100">
       </nav>
-       
-
+    
+    <!--SEARCH BAR/CALL to Action-->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search Location..." aria-label="Search" aria-describedby="search-addon" />
+      <button type="button" class="btn btn-outline-primary">search</button>
+    </div>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
