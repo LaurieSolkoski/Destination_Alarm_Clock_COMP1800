@@ -41,71 +41,16 @@
     <link href="https://mdbootstrap.com/docs/standard/forms/search/">
 
     <!-- Link to styles of your own -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
 
-    <style>
-      #logo {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-      }
+<body>
 
-      .navbar {
-        position: relative;
-      }
-
-      .form-control{
-          border-width:20px;
-          border-color: teal;
-        }
-
-      .display-4{
-          text-align: center;
-          position: relative;
-          top:90px;
-        }
-
-        .lead{
-          text-align: center;
-          position: relative;
-          top:90px;
-        }
-    </style>
-  </head>
-
-  <body>
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <nav class="navbar navbar-light">
-      <div class="container-fluid opacity-100">
-        <button
-          class="navbar-toggler bg-light"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link text-black" aria-current="page" href="#"
-                >My Account</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-black" href="#">Alarm Settings</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <img id="logo" src="./images/image.jpg" height="50" />
-    </nav>
+    <nav id="navTemplate"></nav>
 
     <div class="px-4 py-5 my-5 text-center">
       <img
@@ -142,7 +87,15 @@
         </div>
         <img id="logo" src="./images/image.jpg" height="50">
       </nav>
-       
+    
+      
+    <!--JUMBOTRON-->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Destination Alarm Clock</h1>
+        <p class="lead">Pick a location and set an alarm!</p>
+      </div>
+    </div>
 
     <!--SEARCH BAR/CALL to Action-->
     <br>
