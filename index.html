@@ -24,6 +24,8 @@
     ></script>
 
     <!-- Other libraries go here -->
+    <!--Bootstrap Icons-->
+    <link href="https://mdbootstrap.com/docs/standard/forms/search/">
 
     <!-- Link to styles of your own -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
@@ -39,9 +41,6 @@
         position: relative;
       }
 
-      .input-group {
-        background-color: red;
-      }
     </style>
   </head>
 
@@ -105,10 +104,32 @@
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">
             Secondary
           </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-black" aria-current="page" href="#">My Account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-black" href="#">Alarm Settings</a>
+              </li>
+            </ul>
+          </div>
+          
         </div>
-      </div>
-    </div>
+        <img id="logo" src="./images/image.jpg" height="50">
+      </nav>
+       
 
+    <!--SEARCH BAR/CALL to Action-->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search Location..." aria-label="Search" aria-describedby="search-addon" />
+      <button type="button" class="btn btn-outline-primary">search</button>
+    </div>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
