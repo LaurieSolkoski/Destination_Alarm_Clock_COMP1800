@@ -1,1 +1,27 @@
+#logo {
+    position:absolute;
+    top: 0px;
+    right: 0px;
+  }
 
+  .navbar {
+    position:relative;
+  }
+
+  .form-control{
+    border-width:20px;
+    border-color: teal;
+  }
+
+
+  .display-4{
+    text-align: center;
+    position: relative;
+    top:90px;
+  }
+
+  .lead{
+    text-align: center;
+    position: relative;
+    top:90px;
+  }
