@@ -25,3 +25,23 @@
     position: relative;
     top:90px;
   }
+
+
+body {
+  height: 100%;
+  margin: 0%;
+}
+
+.bg {
+  background-image: url(/images/Background_image.png);
+  height: 100%;
+  width: 100%;
+  filter: blur(3px);
+  position: absolute;
+}
+
+.click-to-map{
+  text-align: center;
+  position: relative;
+  top: 300px;
+}
