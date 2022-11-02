@@ -9,8 +9,8 @@
 }
 
 .form-control{
-  border-width:20px;
-  border-color: teal;
+  border-width:5px;
+  border-color: rgb(40, 52, 186);
 }
 
 
@@ -41,12 +41,6 @@
   }
 
 
-  .form-control{
-    border-width:20px;
-    border-color: teal;
-  }
-
-
   .display-4{
     text-align: center;
     position: relative;
@@ -68,7 +62,7 @@ body {
 .bg {
   height: 100%;
   width: 100%;
-  filter: blur(0px);
+  filter: blur(3px);
   position: absolute;
 }
 
@@ -81,5 +75,18 @@ body {
 .click-to-map{
   text-align: center;
   position: relative;
-  top: 300px;
+  top: 100px;
+}
+
+.input-group{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.btn {
+  border-color: rgb(40, 52, 186);
+  border-width: 2px;
+  background-color: white;
 }
