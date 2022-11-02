@@ -66,10 +66,15 @@ body {
 }
 
 .bg {
-  background-image: url(/images/Background_image.png);
   height: 100%;
   width: 100%;
-  filter: blur(3px);
+  filter: blur(0px);
+  position: absolute;
+}
+
+.bg iframe {
+  height: 100%;
+  width: 100%;
   position: absolute;
 }
 
