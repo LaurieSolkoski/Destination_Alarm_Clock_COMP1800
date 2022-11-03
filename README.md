@@ -1,4 +1,4 @@
-## My Web Application (Add your Title here)
+## Destination Alarm Clock
 
 * [General info](#general-info)
 * [Technologies](#technologies)
