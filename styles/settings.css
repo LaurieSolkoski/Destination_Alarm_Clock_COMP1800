@@ -1,0 +1,8 @@
+[class^="form"] {
+  width: 50%;
+  margin-left: 25%;
+}
+
+[for^="floating"] {
+  margin-left: 25%;
+}
