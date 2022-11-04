@@ -62,7 +62,6 @@ body {
 .bg {
   height: 100%;
   width: 100%;
-  filter: blur(3px);
   position: absolute;
 }
 
@@ -90,3 +89,57 @@ body {
   border-width: 2px;
   background-color: white;
 }
+
+
+svg {
+  width: 100%;
+  position: relative;
+  top: 20%;
+}
+
+
+#slider {
+  position: relative;
+  top: 75%;
+  border: 2px solid black;
+  margin: 10px auto;
+  width: 50%;
+  padding: 2%;
+  background-color: white;
+
+}
+
+#sliderstatus {
+  position: relative;
+  left: 10%;
+}
+
+#slidebar {
+  position: relative;
+  left: 25%;
+}
+
+#radiustext {
+  position: relative;
+  left: 15%;
+}
+
+
+#circle {
+  width: 100px; 
+  height: 100px; 
+  background: red; 
+  border-radius: 100px;
+  position:relative;
+  top: 40%;
+  left: 40%;
+  filter:opacity(50%)!important;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+
