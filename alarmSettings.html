@@ -42,7 +42,9 @@
 
       <!-- NAVBAR -->
       <nav id="navbarPlaceholder"></nav>
-
+      <br>
+      <div class="settings-bg">
+      <div class="settings-heading"><h2>Settings</h2></div>
       <!-- body content -->
       <select class="form-select" aria-label="Default select example">
         <option selected>Alarm Sound</option>
@@ -50,19 +52,23 @@
         <option value="2">Sound Two</option>
         <option value="3">Sound Three</option>
       </select>
-
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-        <label class="form-check-label" for="flexSwitchCheckChecked">Vibration:</label>
+      <hr>
+      <div class="switch">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Vibration</label>
+        <div class="switch-position">
+          <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+          </div>
+        </div>
       </div>
 
-
+<hr>
 <label for="customRange2" class="form-label">Volume</label>
 <input type="range" class="form-range" min="0" max="100" id="customRange2">
-
+<hr>
 <label for="customRange2" class="form-label">Default Trigger Radius</label>
 <input type="range" class="form-range" min="0" max="5" id="customRange2">
-    
+      </div>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
