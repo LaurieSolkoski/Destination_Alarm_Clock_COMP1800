@@ -1,0 +1,66 @@
+[class^="form"] {
+  width: 100%;
+}
+
+[for^="floating"] {
+  margin-left: 25%;
+}
+
+.settings-heading{
+  text-align: center;
+
+}
+
+body {
+  background-color: white;
+}
+
+.form-check-label{
+  position: relative;
+}
+
+.settings-bg{
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+  border-color: blue;
+}
+
+.switch {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 90% 20%;
+}
+
+.switch-position {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  right: 10px;
+}
+
+.form-check-label {
+  width: 70%;
+}
+
+.pass-email-change {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-style: outset;
+}
+
+.name-change {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+  border-style: outset;
+}
