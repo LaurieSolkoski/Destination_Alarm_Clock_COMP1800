@@ -46,7 +46,8 @@
       <div class="settings-bg">
       <div class="settings-heading"><h2>Settings</h2></div>
       <!-- body content -->
-      <select class="form-select" aria-label="Default select example">
+    <fieldset id="settings" disabled> 
+      <select class="form-select" aria-label="Default select example" id="alarmSound">
         <option selected>Alarm Sound</option>
         <option value="1">Sound One</option>
         <option value="2">Sound Two</option>
@@ -62,19 +63,28 @@
         </div>
       </div>
 
-<hr>
-<label for="customRange2" class="form-label">Volume</label>
-<input type="range" class="form-range" min="0" max="100" id="customRange2">
-<hr>
-<label for="customRange2" class="form-label">Default Trigger Radius</label>
-<input type="range" class="form-range" min="0" max="5" id="customRange2">
+          <hr>
+          <label for="volumeRange" class="form-label">Volume</label>
+          <input type="range" class="form-range" min="0" max="100" id="volumeRange" value="50">
+          <hr>
+          <label for="radiusRange" class="form-label">Default Trigger Radius</label>
+          <input type="range" class="form-range" min="0" max="5" id="radiusRange" value="3">
+    </fieldset>
+          <div class="d-flex justify-content-end mt-5">
+            <button type="button" class="btn btn-secondary"onclick="editUserInfo()">Edit</button>
+            <span style="width: 10px"></span>
+            <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+          </div>
       </div>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
+    <script src="./scripts/firebaseAPI_BBY01.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/settingspreference.js"></script>
+    
 
 </body>
 

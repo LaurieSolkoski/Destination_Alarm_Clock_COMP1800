@@ -15,11 +15,15 @@ var uiConfig = {
         // Before this works, you must enable "Firestore" from the firebase console.
         // The Firestore rules must allow the user to write. 
         //------------------------------------------------------------------------------------------
-        var user = authResult.user;                            // get the user object from the Firebase authentication database
+        var user = authResult.user;
+        var settings = authResult.settings;                            // get the user object from the Firebase authentication database
         if (authResult.additionalUserInfo.isNewUser) {         //if new user
             db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
                     name: user.displayName,                    //"users" collection
-                    email: user.email,                       //with authenticated user's ID (user.uid)                 
+                    email: user.email,  
+                    alarmSound: "1",
+                    radiusRange: "50",
+                    volumeRange: "3",                     //with authenticated user's ID (user.uid)                 
                 }).then(function () {
                     console.log("New user added to firestore");
                     window.location.assign("index.html");       //re-direct to main.html after signup
@@ -27,6 +31,17 @@ var uiConfig = {
                 .catch(function (error) {
                     console.log("Error adding new user: " + error);
                 });
+            db.collection("users").doc(user.uid).collection("settings").add({
+                    alarmSound: settings.alarmSound,
+                    radiusRange: settings.radiusRange,
+                    volumeRange: settings.volumeRange,
+                }).then(function () {
+                  console.log("New settings added to firestore");
+                  window.location.assign("index.html");       //re-direct to main.html after signup
+              })
+              .catch(function (error) {
+                  console.log("Error adding new settings: " + error);
+              });
         } else {
             return true;
         }
