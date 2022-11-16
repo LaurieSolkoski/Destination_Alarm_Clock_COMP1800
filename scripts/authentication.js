@@ -28,7 +28,7 @@ var uiConfig = {
           db.collection("users").doc(user.uid).collection("alarms").doc("alarm1").set({
             active: true,
             lat: 49,
-            length: -129 })
+            lng: -129 });
           console.log("New user added to firestore");
                //re-direct to main.html after signup
         }).then(function () {
