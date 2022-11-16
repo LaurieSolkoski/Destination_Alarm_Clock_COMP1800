@@ -107,3 +107,26 @@ function writeLocationData() {
    }
 }
 
+var marker = {lat: 0, lng: 0};
+
+console.log("got here")
+document.getElementById("confirm").addEventListener("click", (e) => {
+    console.log("listener is listening.")
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+          user.collection("alarms").doc("alarm1").update({
+            active: true,
+            lat: marker.lat,
+            lng: marker.lng
+        })
+        } else {
+          // No user is signed in.
+          console.log ("No user is signed in");
+      }
+  });
+  console.log("write done.")
+  window.location.href = "./alex_test.html";
+})
+console.log("after clicker");
+
