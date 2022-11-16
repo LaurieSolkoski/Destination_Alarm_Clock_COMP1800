@@ -1,3 +1,4 @@
+/*
 var lat1 = 49.213583;
 var lon1 = -122.962904;
 var lat2 = 49.259691; 
@@ -19,6 +20,7 @@ const c = 2 * Math.atan2(Math.sqrt(a1), Math.sqrt(1-a1));
 const d = R * c; // in metres
 
 console.log(d);
+*/
 
 // Vincenty formula. Most accurate.
 
@@ -27,7 +29,7 @@ var lon1 = -122.962904;
 var coor1 = {lng: -123.22951305674533, lat: 49.262511641980225}
 var lat2 = 49.259691; 
 var lon2 = -123.244670; 
-var coor2 = {lng: -123.24427593560378, lat: 49.26295974088696}
+var coor2 = {lng: -123.24427593560378, lat: 49.26295974088696} 
 
 var result = inverseVincentyDistance(coor1, coor2);
 console.log(result);
