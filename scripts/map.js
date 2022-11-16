@@ -123,19 +123,23 @@ document.getElementById("confirm").addEventListener("click", (e) => {
             active: true,
             lat: temp.lat,
             lng: temp.lng
+        }).then(function () {
+          db.collection("users").doc(user.uid).update({
+            radius: radius
+          }).then(function() {
+            console.log("inside get");
+          window.location.href = "./alex_test.html"
         })
-        db.collection("users").doc(user.uid).update({
-          radius: radius
-        })
-        var doc = db.collection("users").doc(user.uid).collection("alarms").doc("alarm1");
-        console.log(doc);
+      })
+        
         } else {
           // No user is signed in.
           console.log ("No user is signed in");
       }
   });
   console.log("write done.")
-  //window.location.href = "./alex_test.html";
-})
+  
+  
+});
 console.log("after clicker");
 
