@@ -1,0 +1,101 @@
+#logo {
+  position: fixed;  
+  top: 0px;
+  right: 0px;
+}
+
+.navbar {
+  position: absolute;
+}
+
+.form-control {
+  border-width: 5px;
+  border-color: rgb(40, 52, 186);
+}
+
+.display-4 {
+  text-align: center;
+  position: relative;
+  top: 90px;
+}
+
+.lead {
+  text-align: center;
+  position: relative;
+  top: 90px;
+}
+
+.container h1 {
+  text-align: center;
+  position: relative;
+  top: 80px;
+}
+
+#firebaseui-auth-container {
+  position: relative;
+  top: 120px;
+}
+
+.display-4 {
+  text-align: center;
+  position: relative;
+  top: 90px;
+}
+
+.lead {
+  text-align: center;
+  position: relative;
+  top: 90px;
+}
+
+body {
+  height: 100%;
+  margin: 0%;
+}
+
+.bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.input-group {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.btn {
+  border-color: rgb(40, 52, 186);
+  border-width: 2px;
+  background-color: white;
+}
+
+#map {
+  width: auto;
+  height: 900px;
+
+}
+
+
+.child1 {
+    position: absolute;
+    left: 35%;
+    z-index: 1;
+}
+
+#child2 {
+    position: relative;
+    z-index: -1; 
+}
+
+.container {
+    position: relative;
+    
+}
+
+#navbarPlaceholder {
+    z-index: 10;
+    position: absolute;
+}
