@@ -23,6 +23,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 var map; //for the map to be displayed
 var marker; //for current location
 var circle; //for destination location
+var destMarker // 
 
     
 
@@ -67,6 +68,7 @@ var circle; //for destination location
         //remove old layers with old circles
         //create new circle around clicked location "e"
         //add it to the  map
+        destMarker = e;
         map.removeLayer(location);
         location = new L.circle(e.latlng, {
           fillColor: '#f03',
@@ -106,4 +108,38 @@ function writeLocationData() {
         })
    }
 }
+
+console.log("got here")
+document.getElementById("confirm").addEventListener("click", (e) => {
+    console.log("listener is listening.");
+    console.log(destMarker);
+    var temp = destMarker.latlng;
+    console.log(temp);
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+          console.log(user);
+          db.collection("users").doc(user.uid).collection("alarms").doc("alarm1").update({
+            active: true,
+            lat: temp.lat,
+            lng: temp.lng
+        }).then(function () {
+          db.collection("users").doc(user.uid).update({
+            radius: radius
+          }).then(function() {
+            console.log("inside get");
+          window.location.href = "./alex_test.html"
+        })
+      })
+        
+        } else {
+          // No user is signed in.
+          console.log ("No user is signed in");
+      }
+  });
+  console.log("write done.")
+  
+  
+});
+console.log("after clicker");
 

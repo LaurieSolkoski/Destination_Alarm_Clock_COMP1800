@@ -44,9 +44,10 @@ firebase.auth().onAuthStateChanged(user => {
                                 console.log(dist);
                                 console.log(triggerRadius);
                                 console.log(active);
+                                console.log("trigger = ", (active && triggerRadius >= dist));
                                 if (active && triggerRadius >= dist) {
                                     console.log("Alarm is sounding.")
-                                    turnOffAlarm(); 
+                                    document.getElementById("alarm-sound").play(); 
                                 }
                         
                             } 
