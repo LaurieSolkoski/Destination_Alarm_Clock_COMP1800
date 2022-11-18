@@ -22,12 +22,17 @@ var uiConfig = {
                     name: user.displayName,                    //"users" collection
                     email: user.email,  
                     alarmSound: "1",
-                    radiusRange: "50",
-                    volumeRange: "3",                     //with authenticated user's ID (user.uid)                 
+                    radius: "500",
+                    volumeRange: "3",                     //with authenticated user's ID (user.uid)                  
         }).then(function () {
-
+          db.collection("users").doc(user.uid).collection("alarms").doc("alarm1").set({
+            active: true,
+            lat: 49,
+            lng: -129 });
           console.log("New user added to firestore");
-          window.location.assign("index.html");       //re-direct to main.html after signup
+               //re-direct to main.html after signup
+        }).then(function () {
+          window.location.assign("index.html");  
         })
           .catch(function (error) {
             console.log("Error adding new user: " + error);
