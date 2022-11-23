@@ -5,6 +5,9 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+var userCoor;
+var destCoor = {lat: 0, lng: 0};
+
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         var currentUser = db.collection("users").doc(user.uid)
@@ -35,16 +38,24 @@ firebase.auth().onAuthStateChanged(user => {
                                     .bindPopup(`You are within ${radius} meters from this point`).openPopup();
                         
                                 const locationCircle = L.circle(e.latlng, radius).addTo(map);
-                                var userCoor = e.latlng;
-                                var destCoor = {lat : destLat, lng: destLng}
+                                userCoor = e.latlng;
+                                destCoor = {lat : destLat, lng: destLng}
                                 console.log(destCoor);
                                 console.log(userCoor);
-                                console.log("dest: ", destCoor);
+                                console.log("dest: ", destCoor); 
+                                L.marker(destCoor).addTo(map);
+                                console.log("rad pre circle", triggerRadius);
+                                L.circle([destCoor.lat, destCoor.lng], {radius: triggerRadius}).addTo(map);
                                 var dist = map.distance(userCoor, destCoor);
                                 console.log(dist);
                                 console.log(triggerRadius);
                                 console.log(active);
                                 console.log("trigger = ", (active && triggerRadius >= dist));
+                                console.log("user", userCoor);
+                                console.log("dest pre fit", destCoor);
+                                let bounds = [userCoor, [destCoor.lat, destCoor.lng]];
+                                console.log(bounds);
+                                map.fitBounds(bounds);
                                 if (active && triggerRadius >= dist) {
                                     console.log("Alarm is sounding.")
                                     document.getElementById("alarm-sound").play(); 
@@ -57,7 +68,9 @@ firebase.auth().onAuthStateChanged(user => {
                             map.on('locationfound', onLocationFound);
                             map.on('locationerror', onLocationError);
                         
-                            map.locate({ setView: true, maxZoom: 16, watch: true, enableHighAccuracy: true });
+                            map.locate({watch: true, enableHighAccuracy: true });
+                            
+
                         })
                })
     } else {
