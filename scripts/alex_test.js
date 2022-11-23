@@ -39,7 +39,7 @@ firebase.auth().onAuthStateChanged(user => {
                                 var destCoor = {lat : destLat, lng: destLng}
                                 console.log(destCoor);
                                 console.log(userCoor);
-                                console.log(destCoor);
+                                console.log("dest: ", destCoor);
                                 var dist = map.distance(userCoor, destCoor);
                                 console.log(dist);
                                 console.log(triggerRadius);
