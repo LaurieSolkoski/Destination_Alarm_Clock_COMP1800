@@ -53,47 +53,55 @@
   </head>
 
   <body>
-
-        <nav id="navbarPlaceholder"></nav>  
-      <div class="child1">
-            <!--JUMBOTRON-->
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">Destination Alarm Clock</h1>
-              <p class="lead">Pick a location and set an alarm!</p>
-            </div>
-          </div>
-
-            <!--SEARCH BAR/CALL to Action-->
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="input-group">
-              <input type="search" class="form-control rounded" placeholder="Search Location..." aria-label="Search" aria-describedby="search-addon" />
-              <a href="laurie_test_mod.html"><button type="button" class="btn btn-outline-primary text-black">search</button></a>
-            </div>
-      </div>
-
-
-      
-      <div class="touch">
-        <div id="child2" style = "filter: blur(5px);">
-          <div id="map"></div>
-          <div class="container">
-            
-              <div class="search-scope">
-                <input type="range" min="100" max="1000" value="100" class="slider" id="myRange">
-                <p>Radius (meters) :
-                  <span id="radius-goes-here">100</span>
-                </p>
-              </div>
-          </div>
-            <div id="message"></div>
+    <nav id="navbarPlaceholder"></nav>
+    <div class="child1">
+      <!--JUMBOTRON-->
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Destination Alarm Clock</h1>
+          <p class="lead">Pick a location and set an alarm!</p>
         </div>
-      </div>  
-      <input id="confirm" class="btn btn-primary" type="button" value="Confirm Destination">
+      </div>
+      <!--SEARCH BAR/CALL to Action-->
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+
+    <div class="utility">
+      <div class="search-scope">
+        <input
+          type="range"
+          min="100"
+          max="1000"
+          value="100"
+          class="slider"
+          id="myRange"
+        />
+        <p style="font-size: 2em;">
+          Radius (meters) :
+          <span id="radius-goes-here">100</span>
+        </p>
+      </div>
+      <div id="message" style="display: none;"></div>
+      <input
+        id="confirm"
+        class="btn btn-primary"
+        type="button"
+        value="SET ALARM"
+      />
+      <input
+        id="search"
+        class="btn btn-primary"
+        type="button"
+        value="SEARCH"
+      />
+    </div>
+    <div id="child2">
+      <div id="map"></div>
+    </div>
       <!---------------------------------------------->
       <!-- Your own JavaScript functions go here    -->
       <!---------------------------------------------->

@@ -1,307 +1,499 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Group 1 Project: Destination Alarm Clock</title>
 
-<head>
-  <title>Group 1 Project: Destination Alarm Clock</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no initial-scale=1, maximum-scale=1"
+    />
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1, maximum-scale=1" />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
     <script src="./scripts/firebaseAPI_BBY01.js"></script>
 
-  <!-- Bootstrap Library CSS CDN go here -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
 
+    <!-- Boostrap Library JS CDN  go here and JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Boostrap Library JS CDN  go here and JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+    <!-- Leaflet API -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
 
-  <!-- Leaflet API -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
-  <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
-
-  <!-- "Geocoder-Control" is a free geocoder for leaflet -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <!-- "Geocoder-Control" is a free geocoder for leaflet -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
   <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script> -->
 
-  <!-- Geoapify -->
-  <link rel="stylesheet"
-    href="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.css" />
-  <script
-    src="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.js">
-    </script>
+    <!-- Geoapify -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.css"
+    />
+    <script src="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.js"></script>
 
-  <style type="text/css">
-    body {
-      margin: 0;
-    }
+    <style type="text/css">
+      @font-face {
+        font-family: "bardia_font";
+        src: url("/fonts/BebasNeue-Regular.otf");
+        font-weight: normal;
+        font-style: normal;
+      }
+      #logo {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+      }
 
-    #map {
-      width: 500px;
-      height: 500px;
-    }
+      * {
+        font-family: "bardia_font";
+      }
 
+      .navbar {
+        position: absolute;
+      }
 
-    .leaflet-right {
-      right: 10%;
-      transform: translate(0%, -10%);
-    }
+      .form-control {
+        border-width: 5px;
+        border-color: rgb(40, 52, 186);
+      }
 
-    .leaflet-top {
-      top: 30%;
-      transform: translate(0%, -30%);
-    }
-  </style>
-</head>
+      .display-4 {
+        text-align: center;
+        position: relative;
+        top: 90px;
+      }
 
-<body>
+      .lead {
+        text-align: center;
+        position: relative;
+        top: 90px;
+      }
 
-  <!--JUMBOTRON-->
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Destination Alarm Clock</h1>
-      <p class="lead">Pick a location and set an alarm!</p>
+      .container h1 {
+        text-align: center;
+        position: relative;
+        top: 80px;
+      }
+
+      #firebaseui-auth-container {
+        position: relative;
+        top: 120px;
+      }
+
+      .display-4 {
+        text-align: center;
+        position: relative;
+        top: 90px;
+      }
+
+      .lead {
+        text-align: center;
+        position: relative;
+        top: 90px;
+      }
+
+      body {
+        height: 100%;
+        margin: 0%;
+        overflow: hidden;
+      }
+
+      .bg {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
+
+      .input-group {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+      }
+
+      .btn {
+        border-color: rgb(40, 52, 186);
+        border-width: 2px;
+      }
+
+      #map {
+        width: auto;
+        height: 950px;
+      }
+
+      .utility {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 70%;
+        background-color: hsla(0, 3%, 30%, 0.3);
+        border-radius: 5%;
+        padding: 2%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 20%;
+        z-index: 1;
+      }
+
+      .child1 {
+        position: absolute;
+        background-color: hsla(0, 3%, 30%, 0.3);
+        border-radius: 5%;
+        left: 0;
+        right: 0;
+        margin-top: 1%;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 0;
+        width: 30%;
+        z-index: 2;
+      }
+
+      #child2 {
+        position: relative;
+        z-index: 0;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      #navbarPlaceholder {
+        z-index: 1;
+        position: absolute;
+      }
+
+      .leaflet-right {
+        right: 40%;
+        transform: translate(0%, -10%);
+      }
+
+      .leaflet-top {
+        top: 30%;
+        transform: translate(0%, -30%);
+      }
+
+      .leaflet-control-zoom {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--JUMBOTRON-->
+    <nav id="navbarPlaceholder"></nav>
+    <div class="child1">
+      <!--JUMBOTRON-->
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Destination Alarm Clock</h1>
+          <p class="lead">Pick a location and set an alarm!</p>
+        </div>
+      </div>
+      <!--SEARCH BAR/CALL to Action-->
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+
+    <div class="utility">
       <div class="search-scope">
-        <input type="range" min="100" max="1000" value="500" class="slider" id="myRange">
-        <p>Radius (meters) :
-          <span id="radius-goes-here">500</span>
+        <input
+          type="range"
+          min="100"
+          max="1000"
+          value="100"
+          class="slider"
+          id="myRange"
+        />
+        <p style="font-size: 2em;">
+          Radius (meters) :
+          <span id="radius-goes-here">100</span>
         </p>
       </div>
+      <div id="message" style="display: none;"></div>
+      <input
+        id="confirm"
+        class="btn btn-primary"
+        type="button"
+        value="SET ALARM"
+      />
     </div>
-  </div>
-
-  <div class="container">
-    <div class="click-to-map">
-      <h1>Click anywhere on the map to navigate</h1>
-    </div>
-    <div id="message"></div>
-    <div class="container jumbotron-fluid">
+    <div id="child2">
       <div id="map"></div>
     </div>
-  </div>
 
-  <input id="confirm" class="btn btn-primary" type="button" value="Confirm Destination">
+    <script src="./scripts/skeleton.js"></script>
+    <!--SCRIPT -->
+    <script type="text/javascript">
+      $("#map").click(function () {
+        location.href = "index.html";
 
+        console.log("clicked");
+      });
 
+      //--------------------------------------
+      // MAP:  get current geolocation
+      //---------------------------------------
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      var map; //for the map to be displayed
+      var marker1; //for current location
+      var circle1; //for current circle(?)
+      var marker2; //for destination location
+      var circle2; //for destination circle
+      var location1;
+      var location2;
+      var myradius; //for how big circle is
 
+      // function initRadius() {
+      //   firebase.auth().onAuthStateChanged(user => {
+      //     // Check if user is signed in:
+      //     if (user) {
+      //       console.log(user);
+      //       var rad;
+      //       let userDoc = db.collection("users").doc(user.uid)
+      //       userDoc.get().then(doc => {
+      //         rad = doc.data().rad
+      //         console.log(rad);
+      //     });
+      //       document.getElementById("myRange").value = rad;
+      //       document.getElementById("radius-goes-here").innerHTML = rad;
+      //   }
+      //      else {
+      //       // No user is signed in.
+      //       console.log("No user is signed in");
+      //     }
+      //   })}
+      // initRadius();
 
-
-
-  <!--SCRIPT -->
-  <script type="text/javascript">
-    //--------------------------------------
-    // MAP:  get current geolocation
-    //---------------------------------------
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    var map; //for the map to be displayed
-    var marker1; //for current location
-    var circle1; //for current circle(?)
-    var marker2; //for destination location
-    var circle2; //for destination circle
-    var location1;
-    var location2;
-    var myradius; //for how big circle is
-
-    // function initRadius() {
-    //   firebase.auth().onAuthStateChanged(user => {
-    //     // Check if user is signed in:
-    //     if (user) {
-    //       console.log(user);
-    //       var rad;
-    //       let userDoc = db.collection("users").doc(user.uid)
-    //       userDoc.get().then(doc => {
-    //         rad = doc.data().rad
-    //         console.log(rad);
-    //     });
-    //       document.getElementById("myRange").value = rad;
-    //       document.getElementById("radius-goes-here").innerHTML = rad;
-    //   }
-    //      else {
-    //       // No user is signed in.
-    //       console.log("No user is signed in");
-    //     }
-    //   })}
-    // initRadius();
-    
-
-    //----------------------------
-    // Get radius from the slider
-    //----------------------------
-    function getRadius() {
-      myradius = document.getElementById("myRange").value;
-      console.log(myradius);
-      document.getElementById("myRange").addEventListener("click", function () {
+      //----------------------------
+      // Get radius from the slider
+      //----------------------------
+      function getRadius() {
         myradius = document.getElementById("myRange").value;
-        console.log(myradius, "click")
         console.log(myradius);
-        document.getElementById("radius-goes-here").innerHTML = myradius;
-        dest.radius = myradius;
-      })
-    }
-    getRadius();
+        document
+          .getElementById("myRange")
+          .addEventListener("click", function () {
+            myradius = document.getElementById("myRange").value;
+            console.log(myradius, "click");
+            console.log(myradius);
+            document.getElementById("radius-goes-here").innerHTML = myradius;
+            dest.radius = myradius;
+          });
+      }
+      getRadius();
 
-    //-----------------------------------------
-    // handle success case of getCurrentPosition
-    //-----------------------------------------
-    function onSuccess(position) { //callback function
-      const {
-        latitude,
-        longitude
-      } = position.coords;
+      //-----------------------------------------
+      // handle success case of getCurrentPosition
+      //-----------------------------------------
+      function onSuccess(position) {
+        //callback function
+        const { latitude, longitude } = position.coords;
 
-      //print helpful messages about current location
-      message.classList.add('success');
-      message.textContent = `Your location: (${latitude},${longitude})`;
-      //set map to be around current location
-      //set a marker at the current location
-      map = L.map('map').setView([latitude, longitude], 13);
-      marker = L.marker([latitude, longitude]).addTo(map);
+        //print helpful messages about current location
+        message.classList.add("success");
+        message.textContent = `Your location: (${latitude},${longitude})`;
+        //set map to be around current location
+        //set a marker at the current location
+        map = L.map("map").setView([latitude, longitude], 13);
+        marker = L.marker([latitude, longitude]).addTo(map);
 
-      //addMapClickListener();
-      addGeocoder();
-    }
+        //addMapClickListener();
+        addGeocoder();
+      }
 
-    var dest = { lat: 0, lng: 0, radius: 0}
+      var dest = { lat: 0, lng: 0, radius: 0 };
 
-    function addMapClickListener() {
-      var popup = L.popup();
-      var location = new L.circle();
-      //Create listener, and event handler for a click
-      //"e" is the clicked location
-      map.on('click', onMapClick);
-      //Define the event hander below
-      function onMapClick(e) {
-        //create a popup when a location is clicked
-        //create a circle marker when a location is clicked
+      function addMapClickListener() {
+        var popup = L.popup();
+        var location = new L.circle();
+        //Create listener, and event handler for a click
+        //"e" is the clicked location
+        map.on("click", onMapClick);
+        //Define the event hander below
+        function onMapClick(e) {
+          //create a popup when a location is clicked
+          //create a circle marker when a location is clicked
 
+          //assign content to popup message
+          popup
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(map);
+          //remove old layers with circlemarker
+          //create new circle around clicked location "e"
+          //add it to the  map
+          map.removeLayer(location);
+          console.log(myradius);
+          location = new L.circle(e.latlng, {
+            fillColor: "#f03",
+            radius: myradius,
+          });
+          map.addLayer(location);
+        }
+      }
+
+      //-------------------------------------------
+      // Add the Geocoder
+      //-------------------------------------------
+      function addGeocoder() {
+        var myAPIKey = "afee0b090ae44bfdb1bbf7bd1d439bc0"; // Get an API Key on https://myprojects.geoapify.com
+        var mapURL = L.Browser.retina
+          ? `https://maps.geoapify.com/v1/tile/{mapStyle}/{z}/{x}/{y}.png?apiKey={apiKey}`
+          : `https://maps.geoapify.com/v1/tile/{mapStyle}/{z}/{x}/{y}@2x.png?apiKey={apiKey}`;
+
+        // Add map tiles layer. Set 20 as the maximal zoom and provide map data attribution.
+        L.tileLayer(mapURL, {
+          attribution:
+            "Powered by Geoapify | © OpenMapTiles © OpenStreetMap contributors",
+          apiKey: myAPIKey,
+          mapStyle: "osm-carto", // More map styles on https://apidocs.geoapify.com/docs/maps/map-tiles/
+          maxZoom: 20,
+        }).addTo(map);
+
+        // Add Geoapify Address Search control
+        const addressSearchControl = L.control.addressSearch(myAPIKey, {
+          position: "topright",
+          resultCallback: (selectedAddress) => {
+            console.log(selectedAddress);
+            showSearchResult(selectedAddress);
+          },
+          suggestionsCallback: (suggestions) => {
+            console.log(suggestions);
+          },
+        });
+        map.addControl(addressSearchControl);
+        L.control
+          .zoom({
+            position: "bottomright",
+          })
+          .addTo(map);
+      }
+
+      document.getElementById("confirm").addEventListener("click", (e) => {
+        console.log("listener is listening.");
+        firebase.auth().onAuthStateChanged((user) => {
+          // Check if user is signed in:
+          if (user) {
+            console.log(user);
+            db.collection("users")
+              .doc(user.uid)
+              .collection("alarms")
+              .doc("alarm1")
+              .update({
+                active: true,
+                lat: dest.lat,
+                lng: dest.lng,
+              })
+              .then(function () {
+                db.collection("users")
+                  .doc(user.uid)
+                  .update({
+                    radius: dest.radius,
+                  })
+                  .then(function () {
+                    console.log("inside get");
+                    window.location.href = "./alex_test.html";
+                  });
+              });
+          } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+          }
+        });
+      });
+
+      //----------------------------------------------------------------
+      //This function is called by addGeocoder after there is a result
+      //----------------------------------------------------------------
+      function showSearchResult(searchResult) {
+        newlatlng = L.latLng(searchResult.lat, searchResult.lon);
+        dest.lat = searchResult.lat;
+        dest.lng = searchResult.lon;
+        map.setView(newlatlng, 11);
+        L.marker(newlatlng).addTo(map);
+        var popup = L.popup();
+        var location = new L.circle();
         //assign content to popup message
         popup
-          .setLatLng(e.latlng)
-          .setContent("You clicked the map at " + e.latlng.toString())
+          .setLatLng(newlatlng)
+          .setContent("Your searched location is:  " + newlatlng.toString())
           .openOn(map);
         //remove old layers with circlemarker
         //create new circle around clicked location "e"
         //add it to the  map
         map.removeLayer(location);
         console.log(myradius);
-        location = new L.circle(e.latlng, {
-          fillColor: '#f03',
+        location = new L.circle(newlatlng, {
+          fillColor: "#f03",
           radius: myradius,
         });
         map.addLayer(location);
+        console.log(dest.lat);
+        console.log(dest.lng);
+        console.log(dest.radius);
       }
-    }
 
-    //-------------------------------------------
-    // Add the Geocoder 
-    //-------------------------------------------
-    function addGeocoder() {
-      var myAPIKey = "afee0b090ae44bfdb1bbf7bd1d439bc0"; // Get an API Key on https://myprojects.geoapify.com
-      var mapURL = L.Browser.retina ?
-        `https://maps.geoapify.com/v1/tile/{mapStyle}/{z}/{x}/{y}.png?apiKey={apiKey}` :
-        `https://maps.geoapify.com/v1/tile/{mapStyle}/{z}/{x}/{y}@2x.png?apiKey={apiKey}`;
+      // handle error case for finding current position
+      function onError() {
+        message.classList.add("error");
+        message.textContent = `Failed to get your location!`;
+      }
 
-      // Add map tiles layer. Set 20 as the maximal zoom and provide map data attribution.
-      L.tileLayer(mapURL, {
-        attribution: 'Powered by Geoapify | © OpenMapTiles © OpenStreetMap contributors',
-        apiKey: myAPIKey,
-        mapStyle: "osm-carto", // More map styles on https://apidocs.geoapify.com/docs/maps/map-tiles/
-        maxZoom: 20
-      }).addTo(map);
+      var grayscale = L.tileLayer(mapboxUrl, {
+          id: "MapID",
+          attribution: mapboxAttribution,
+        }),
+        streets = L.tileLayer(mapboxUrl, {
+          id: "MapID",
+          attribution: mapboxAttribution,
+        });
 
-      // Add Geoapify Address Search control
-      const addressSearchControl = L.control.addressSearch(myAPIKey, {
-        position: 'topright',
-        resultCallback: (selectedAddress) => {
-          console.log(selectedAddress);
-          showSearchResult(selectedAddress);
-        },
-        suggestionsCallback: (suggestions) => {
-          console.log(suggestions);
-        }
-      });
-      map.addControl(addressSearchControl);
-      L.control.zoom({
-        position: 'bottomright'
-      }).addTo(map);
-    }
+      map.removeLayer(grayscale);
+      map.addLayer(streets);
 
-    document.getElementById("confirm").addEventListener("click", (e) => {
-      console.log("listener is listening.");
-      firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-          console.log(user);
-          db.collection("users").doc(user.uid).collection("alarms").doc("alarm1").update({
-            active: true,
-            lat: dest.lat,
-            lng: dest.lng
-          }).then(function () {
-            db.collection("users").doc(user.uid).update({
-              radius: dest.radius
-            }).then(function () {
-              console.log("inside get");
-              window.location.href = "./alex_test.html"
-            })
-          })
-
-        } else {
-          // No user is signed in.
-          console.log("No user is signed in");
-        }
-      })
-    })
-
-    //----------------------------------------------------------------
-    //This function is called by addGeocoder after there is a result
-    //----------------------------------------------------------------
-    function showSearchResult(searchResult) {
-      newlatlng = L.latLng(searchResult.lat, searchResult.lon);
-      dest.lat = searchResult.lat;
-      dest.lng = searchResult.lon;
-      map.setView(newlatlng, 11);
-      L.marker(newlatlng).addTo(map);
-      var popup = L.popup();
-      var location = new L.circle();
-      //assign content to popup message
-      popup
-        .setLatLng(newlatlng)
-        .setContent("Your searched location is:  " + newlatlng.toString())
-        .openOn(map);
-      //remove old layers with circlemarker
-      //create new circle around clicked location "e"
-      //add it to the  map
-      map.removeLayer(location);
-      console.log(myradius);
-      location = new L.circle(newlatlng, {
-        fillColor: '#f03',
-        radius: myradius,
-      });
-      map.addLayer(location);
-      console.log(dest.lat);
-      console.log(dest.lng);
-      console.log(dest.radius);
-    }
-
-    // handle error case for finding current position
-    function onError() {
-      message.classList.add('error');
-      message.textContent = `Failed to get your location!`;
-    }
-  </script>
-</body>
-
+      var imageUrl =
+          "https://maps.lib.utexas.edu/maps/historical/newark_nj_1922.jpg",
+        imageBounds = [
+          [40.712216, -74.22655],
+          [40.773941, -74.12544],
+        ];
+      L.imageOverlay(imageUrl, imageBounds).addTo(map);
+    </script>
+  </body>
 </html>
