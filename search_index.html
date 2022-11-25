@@ -156,16 +156,17 @@
         position: absolute;
         left: 0;
         right: 0;
-        top: 70%;
+        top: 73%;
         background-color: hsla(0, 3%, 30%, 0.3);
         border-radius: 5%;
-        padding: 2%;
+        padding: 1%;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
         width: 20%;
         z-index: 1;
       }
+      
 
       .child1 {
         position: absolute;
@@ -177,7 +178,7 @@
         margin-left: auto;
         margin-right: auto;
         gap: 0;
-        width: 30%;
+        width: 40%;
         z-index: 2;
       }
 
@@ -196,18 +197,33 @@
       }
 
       .leaflet-right {
-        right: 40%;
-        transform: translate(0%, -10%);
+        top: 45%;
+        left: 50%;
+        width: 30em;
+        height: 18em;
+        margin-top: -9em;
+        margin-left: -15em;
+        position: fixed;
       }
 
       .leaflet-top {
-        top: 30%;
-        transform: translate(0%, -30%);
+        top: 45%;
+        left: 50%;
+        width: 30em;
+        height: 18em;
+        margin-top: -9em;
+        margin-left: -15em;
+        position: fixed;
       }
 
       .leaflet-control-zoom {
         display: none;
       }
+
+      .leaflet-control-attribution {
+        display: none;
+      }
+
     </style>
   </head>
 
@@ -240,9 +256,10 @@
           class="slider"
           id="myRange"
         />
-        <p style="font-size: 2em;">
+        <p style="font-size: 2em; margin-bottom: 0;">
           Radius (meters) :
           <span id="radius-goes-here">100</span>
+          <p style="letter-spacing: .1rem;">Alarm will activate within the radius</p>
         </p>
       </div>
       <div id="message" style="display: none;"></div>

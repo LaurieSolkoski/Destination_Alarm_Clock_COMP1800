@@ -82,7 +82,6 @@ body {
 .btn {
   border-color: rgb(40, 52, 186);
   border-width: 2px;
-  background-color: white;
 }
 
 #map {
@@ -102,7 +101,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   gap: 0;
-  width: 30%;
+  width: 40%;
   z-index: 2;
 }
 
@@ -127,16 +126,17 @@ body {
 
 body {
   float: center;
+  overflow: hidden;
 }
 
 .utility {
   position: absolute;
   left: 0;
   right: 0;
-  top: 70%;
+  top: 73%;
   background-color: hsla(0, 3%, 30%, 0.3);
   border-radius: 5%;
-  padding: 2%;
+  padding: 1%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;

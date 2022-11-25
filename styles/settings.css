@@ -49,18 +49,17 @@ body {
 .pass-email-change {
   margin-right: auto;
   margin-left: auto;
-  width: 80%;
-  padding-left: 10%;
-  padding-right: 10%;
+  width: 40%;
+  padding-left: 5%;
+  padding-right: 5%;
   border-style: outset;
 }
 
 .name-change {
   margin-right: auto;
   margin-left: auto;
-  width: 80%;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 5%;
+  width: 40%;
+  padding-left: 5%;
+  padding-right: 5%;
   border-style: outset;
 }

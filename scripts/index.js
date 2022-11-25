@@ -1,7 +1,7 @@
 // unblur map by clicking
 
 $("#search").click(function () {
-  location.href = "laurie_test_mod.html";
+  location.href = "search_index.html";
 
   console.log("clicked");
 });
