@@ -10,24 +10,21 @@ function populateInfo() {
 
             //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid)
+            console.log(currentUser);
             //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
                     //get the data fields of the user
-                    var getAlarmSound = userDoc.value().alarmSound;
-                    var getVolumeRange = userDoc.value().radiusRange;
-                    var getRadiusRange = userDoc.value().volumeRange;
+                    var getAlarmSound = userDoc.alarmSound;
+                    var getVolumeRange = userDoc.volumeRange;
+                    var getRadiusRange = userDoc.data().radius;
+                    console.log(getRadiusRange);
+                    document.getElementById("radiusRange").value = getRadiusRange;
+                    document.getElementById("radiusRange").setAttribute("value", getRadiusRange);
+                    console.log(document.getElementById("radiusRange").value);
+                    document.getElementById("currentRadius").innerHTML = document.getElementById("radiusRange").value;
 
-                    //if the data fields are not empty, then write them in to the form.
-                    if (getAlarmSound != null) {
-                        document.getElementById("alarmSound").value = 1;
-                    }
-                    if (getVolumeRange != null) {
-                        document.getElementById("volumeRange").value = 50;
-                    }
-                    if (getRadiusRange != null) {
-                        document.getElementById("radiusRange").value = 3;
-                    }
+                    
                 })
         } else {
             // No user is signed in.
@@ -51,8 +48,8 @@ function editUserInfo() {
 
     currentUser.update({
         alarmSound: getAlarmSound,
-        radiusRange: getVolumeRange,
-        volumeRange: getRadiusRange
+        volumeRange: getVolumeRange,
+        radius: getRadiusRange
     })
     .then(() => {
         console.log("Document successfully updated!");
@@ -60,3 +57,12 @@ function editUserInfo() {
 
     document.getElementById('settings').disabled = true;
 }
+
+document.getElementById("radiusRange").addEventListener("click", (e) => {
+    document.getElementById("currentRadius").innerHTML = document.getElementById("radiusRange").value;    
+});
+
+document.getElementById("radiusRange").addEventListener("touchend", (e) => {
+    document.getElementById("currentRadius").innerHTML = document.getElementById("radiusRange").value; 
+    console.log("touched");   
+});

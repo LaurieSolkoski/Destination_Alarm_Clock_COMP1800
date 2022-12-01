@@ -1,7 +1,28 @@
+var radius;
+
+firebase.auth().onAuthStateChanged(user => {
+  // Check if user is signed in:
+  if (user) {
+      //go to the correct user document by referencing to the user uid
+      currentUser = db.collection("users").doc(user.uid)
+      console.log(currentUser);
+      //get the document for current user.
+      currentUser.get()
+          .then(userDoc => {
+              //get the data fields of the user
+              myradius = userDoc.data().radius;
+              console.log(myradius);
+              document.getElementById("myRange").value = myradius;
+              document.getElementById("myRange").setAttribute("value", myradius);
+              console.log(document.getElementById("radius-goes-here").value);
+              document.getElementById("radius-goes-here").innerHTML = document.getElementById("myRange").value;
+              radius = document.getElementById("myRange").value;
+          })}});
+   
    //----------------------------
     // Get radius from the slider
     //----------------------------
-    var radius = document.getElementById("myRange").value;  //initial value
+  //initial value
     document.getElementById("myRange").addEventListener("click", function () {
           radius = document.getElementById("myRange").value;
           //console.log(radius);
@@ -14,6 +35,17 @@
             }
          
     })
+
+    document.getElementById("myRange").addEventListener("touchend", function () {
+      radius = document.getElementById("myRange").value;
+      console.log("touch");
+      document.getElementById("radius-goes-here").innerHTML = radius;
+    
+        radius.oninput = function(){
+            output.innerHTML = radius.value;
+            circle.setRadius(this.value);            
+        }     
+})
 
   //----------------------------------------------------------//
   // SEACH BAR //

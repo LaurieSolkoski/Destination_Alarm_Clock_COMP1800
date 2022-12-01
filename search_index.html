@@ -71,8 +71,10 @@
       }
       #logo {
         position: fixed;
-        top: 0px;
-        right: 0px;
+        top: 5vh;
+        right: 2vh;
+        height: auto;
+        width: 17% !important;
       }
 
       * {
@@ -137,7 +139,7 @@
 
       #map {
         width: auto;
-        height: 600px;
+        height: 100vh;
       }
 
       .utility {
@@ -213,27 +215,100 @@
         display: none;
       }
 
+      #header {
+        text-align: center;
+        margin: 0 auto;
+        position: absolute;
+        top: 5vh;
+        left: 0;
+        right: 0;
+        z-index: 250;
+        background-color: hsla(0, 3%, 30%, 0.3);
+        border-radius: 5%;
+        width: 60%;
+      }
+
+      #navbarPlaceholder {
+        z-index: 251;
+        position: absolute;
+        top: 5vh;
+        left: 0;
+        right: 0;
+      }
+
+      body {
+        position: relative;
+      }
+
+
+      @media (max-width: 768px) {
+        .utility {
+          position: absolute;
+          bottom: 70%;
+          top: 68%;
+          height: 30vh;
+          font-size: 10pt;
+        }
+
+        #rad-field, #radius-goes-here {
+          font-size: 13pt !important;
+        }
+
+        #header {
+          position: absolute;
+          top: 1vh;
+          height: 20%;
+          font-size: 10pt;
+          width: 50%;
+        }
+
+        #logo {
+          display: none;
+        }
+
+        #map {
+          max-width: 100vw;
+        }
+
+        .leaflet-control.leaflet-bar.geoapify-leaflet-control {
+          width: 80%;
+          min-width: 0px;
+          margin: 0 auto;
+          position: absolute;
+          right: 0;
+          left: 0;
+        }
+
+        .navbar-collapse.collapse.show {
+          background-color: white;
+          border: 1px solid black;
+          border-radius: 5%;
+        }
+
+        #confirm {
+          position: relative;
+          bottom: 2%;
+        }
+
+        #info {
+          margin: 0 auto;
+        }
+
+        
+      }
+
     </style>
   </head>
 
   <body>
     <!--JUMBOTRON-->
     <nav id="navbarPlaceholder"></nav>
-    <div class="child1">
-      <!--JUMBOTRON-->
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Destination Alarm Clock</h1>
-          <p class="lead">Pick a location and set an alarm!</p>
-        </div>
-      </div>
-      <!--SEARCH BAR/CALL to Action-->
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
+    <div id="header">
+      <h1 id="name">Destination Alarm Clock</h1>
+      <p id="instructions">Pick a location and set an alarm!</p>
     </div>
+
 
     <div class="utility">
       <div class="search-scope">
@@ -245,10 +320,10 @@
           class="slider"
           id="myRange"
         />
-        <p style="font-size: 2em; margin-bottom: 0;">
+        <p id="rad-field" style="font-size: 2em; margin-bottom: 0;">
           Radius (meters) :
           <span id="radius-goes-here">100</span>
-          <p style="letter-spacing: .1rem;">Alarm will activate within the radius</p>
+          <p id="info" style="letter-spacing: .1rem;">Alarm will activate within the radius</p>
         </p>
       </div>
       <div id="message" style="display: none;"></div>
@@ -267,7 +342,7 @@
     <!--SCRIPT -->
     <script type="text/javascript">
       $("#map").click(function () {
-        location.href = "index.html";
+        location.href = "click.html";
 
         console.log("clicked");
       });
@@ -285,36 +360,44 @@
       var location2;
       var myradius; //for how big circle is
 
-      // function initRadius() {
-      //   firebase.auth().onAuthStateChanged(user => {
-      //     // Check if user is signed in:
-      //     if (user) {
-      //       console.log(user);
-      //       var rad;
-      //       let userDoc = db.collection("users").doc(user.uid)
-      //       userDoc.get().then(doc => {
-      //         rad = doc.data().rad
-      //         console.log(rad);
-      //     });
-      //       document.getElementById("myRange").value = rad;
-      //       document.getElementById("radius-goes-here").innerHTML = rad;
-      //   }
-      //      else {
-      //       // No user is signed in.
-      //       console.log("No user is signed in");
-      //     }
-      //   })}
-      // initRadius();
+      firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            console.log(currentUser);
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    //get the data fields of the user
+                    myradius = userDoc.data().radius;
+                    console.log(myradius);
+                    document.getElementById("myRange").value = myradius;
+                    document.getElementById("myRange").setAttribute("value", myradius);
+                    console.log(document.getElementById("radius-goes-here").value);
+                    document.getElementById("radius-goes-here").innerHTML = document.getElementById("myRange").value;
+                })}});
+
+
 
       //----------------------------
       // Get radius from the slider
       //----------------------------
       function getRadius() {
-        myradius = document.getElementById("myRange").value;
         console.log(myradius);
         document
           .getElementById("myRange")
           .addEventListener("click", function () {
+            myradius = document.getElementById("myRange").value;
+            console.log(myradius, "click");
+            console.log(myradius);
+            document.getElementById("radius-goes-here").innerHTML = myradius;
+            dest.radius = myradius;
+          });
+          document
+          .getElementById("myRange")
+          .addEventListener("touchend", function () {
             myradius = document.getElementById("myRange").value;
             console.log(myradius, "click");
             console.log(myradius);

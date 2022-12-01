@@ -15,4 +15,4 @@ var svg = makerjs.exporter.toSVG(model);
 document.getElementById('sliderStatus').innerHTML = radius
 document.getElementById('drawing').innerHTML = svg
 
-document.write(svg);
+document.write(svg);z

@@ -67,8 +67,8 @@
           <label for="volumeRange" class="form-label">Volume</label>
           <input type="range" class="form-range" min="0" max="100" id="volumeRange" value="50">
           <hr>
-          <label for="radiusRange" class="form-label">Default Trigger Radius</label>
-          <input type="range" class="form-range" min="0" max="5" id="radiusRange" value="3">
+          <label for="radiusRange" class="form-label">Trigger Radius: <span id="currentRadius"></span></label>
+          <input type="range" class="form-range" min="100" max="1000" id="radiusRange" value="100">
     </fieldset>
           <div class="d-flex justify-content-end mt-5">
             <button type="button" class="btn btn-info"onclick="editUserInfo()">Edit</button>
