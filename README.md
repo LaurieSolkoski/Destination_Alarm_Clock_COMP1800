@@ -16,31 +16,23 @@ Technologies used for this project:
 * JavaScript
 * Bootstrap 
 * Leaflet API
+* Geoapify API
 	
+
+
 ## Content
 Content of the project folder:
 
 ```
-├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
+├── .gitignore              # contains the following files: firebaseAPI_DAC.js and firebaseAPI_BBY01.js. This is for the Firebase and Firestore API and is used in our login page.
+
+├── alarm.html              # contains the contents of the page after an alarm has been set. It is also the page that the user is redirected to while travelling to their destination and hasn't yet reached the inner bounds of their radius. 
+
+
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg                # 
-├── scripts                  # Folder for scripts
-    /blah.js                 # 
-├── styles                   # Folder for styles
-    /blah.css                # 
 
-Firebase hosting files: 
-├── .firebaserc...
+
 
 
 ```
-
-Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
-
