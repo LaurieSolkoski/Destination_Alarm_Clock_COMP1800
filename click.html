@@ -1,349 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
-    <title>Group 1 Project: Destination Alarm Clock</title>
-    <meta name="comp1800 template" content="My 1800 App" />
+<head>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <!-- Leaflet link -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-     crossorigin="">
+  <title>Group 1 Project: Destination Alarm Clock</title>
+  <meta name="comp1800 template" content="My 1800 App" />
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Leaflet link -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin="">
     </script>
 
-    <!-- link to our own stylesheet. -->
-    <link rel="stylesheet" href="./styles/index.css">
+  <!-- link to our own stylesheet. -->
+  <link rel="stylesheet" href="./styles/index.css">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 
-    <!-- Boostrap Library JS CDN  go here -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    
-     <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    
-    
-    <!-- Other libraries go here -->
-    <!--Bootstrap Icons-->
-    <link href="https://mdbootstrap.com/docs/standard/forms/search/">
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
-    <style type="text/css">
-      @font-face {
-        font-family: "bardia_font";
-        src: url("/fonts/BebasNeue-Regular.otf");
-        font-weight: normal;
-        font-style: normal;
-      }
-      #logo {
-        position: fixed;
-        top: 5vh;
-        right: 2vh;
-        height: auto;
-        width: 17% !important;
-      }
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
 
-      * {
-        font-family: "bardia_font";
-      }
-
-      .navbar {
-        position: absolute;
-      }
-
-      .form-control {
-        border-width: 5px;
-        border-color: rgb(40, 52, 186);
-      }
-
-      .display-4 {
-        text-align: center;
-        position: relative;
-        font-size: 2em;
-      }
-
-      .container h1 {
-        text-align: center;
-        position: relative;
-        top: 20px;
-      }
-
-      #firebaseui-auth-container {
-        position: relative;
-        top: 120px;
-      }
-
-      .lead {
-        text-align: center;
-        position: relative;
-        top: 20px;
-      }
-
-      body {
-        height: 100%;
-        margin: 0%;
-        overflow: hidden;
-      }
-
-      .bg {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-      }
-
-      .input-group {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        width: 70%;
-      }
-
-      .btn {
-        border-color: rgb(40, 52, 186);
-        border-width: 2px;
-      }
-
-      #map {
-        width: auto;
-        height: 100vh;
-      }
-
-      .utility {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 70%;
-        background-color: hsla(0, 3%, 30%, 0.3);
-        border-radius: 5%;
-        padding: 1%;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        width: 60%;
-        z-index: 1;
-      }
-      
-
-      .child1 {
-        position: absolute;
-        background-color: hsla(0, 3%, 30%, 0.3);
-        border-radius: 5%;
-        left: 0;
-        right: 0;
-        margin-top: 1%;
-        margin-left: auto;
-        margin-right: auto;
-        gap: 0;
-        width: 50%;
-        height:25%;
-        z-index: 2;
-      }
-
-      #child2 {
-        position: relative;
-        z-index: 0;
-      }
-
-      .container {
-        position: relative;
-      }
-
-      #navbarPlaceholder {
-        z-index: 1;
-        position: absolute;
-      }
-
-      .leaflet-right {
-        top: 45%;
-        left: 50%;
-        width: 30em;
-        height: 18em;
-        margin-top: -9em;
-        margin-left: -15em;
-        position: fixed;
-      }
-
-      .leaflet-top {
-        top: 45%;
-        left: 50%;
-        width: 30em;
-        height: 18em;
-        margin-top: -9em;
-        margin-left: -15em;
-        position: fixed;
-      }
-
-      .leaflet-control-zoom {
-        display: none;
-      }
-
-      .leaflet-control-attribution {
-        display: none;
-      }
-
-      #header {
-        text-align: center;
-        margin: 0 auto;
-        position: absolute;
-        top: 5vh;
-        left: 0;
-        right: 0;
-        z-index: 250;
-        background-color: hsla(0, 3%, 30%, 0.3);
-        border-radius: 5%;
-        width: 60%;
-      }
-
-      #navbarPlaceholder {
-        z-index: 251;
-        position: absolute;
-        top: 5vh;
-        left: 0;
-        right: 0;
-      }
-
-      body {
-        position: relative;
-      }
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
 
-      @media (max-width: 768px) {
-        .utility {
-          position: absolute;
-          bottom: 70%;
-          top: 68%;
-          height: 30vh;
-          font-size: 10pt;
-        }
+  <!-- Other libraries go here -->
+  <!--Bootstrap Icons-->
+  <link href="https://mdbootstrap.com/docs/standard/forms/search/">
 
-        #rad-field, #radius-goes-here {
-          font-size: 13pt !important;
-        }
+  <link rel="stylesheet" href="./styles/click.css">
 
-        #header {
-          position: absolute;
-          top: 1vh;
-          height: 20%;
-          font-size: 10pt;
-          width: 50%;
-        }
+</head>
 
-        #logo {
-          display: none;
-        }
+<body>
+  <nav id="navbarPlaceholder"></nav>
+  <div id="header">
+    <h1 id="name">Destination Alarm Clock</h1>
+    <p id="instructions">Pick a location and set an alarm!</p>
+  </div>
 
-        #map {
-          max-width: 100vw;
-        }
-
-        .leaflet-control.leaflet-bar.geoapify-leaflet-control {
-          width: 80%;
-          min-width: 0px;
-          margin: 0 auto;
-          position: absolute;
-          right: 0;
-          left: 0;
-        }
-
-        .navbar-collapse.collapse.show {
-          background-color: white;
-          border: 1px solid black;
-          border-radius: 5%;
-        }
-
-        #confirm {
-          position: relative;
-          bottom: 2%;
-        }
-
-        #search {
-          position: relative;
-          bottom: 2%;
-        }
-
-        #info {
-          margin: 0 auto;
-        }
-
-        
-      }
-
-    </style>
- 
-  </head>
-
-  <body>
-    <nav id="navbarPlaceholder"></nav>
-    <div id="header">
-      <h1 id="name">Destination Alarm Clock</h1>
-      <p id="instructions">Pick a location and set an alarm!</p>
+  <div class="utility">
+    <div class="search-scope">
+      <input type="range" min="100" max="1000" value="100" class="slider" id="myRange" />
+      <p id="rad-field" style="font-size: 2em; margin-bottom: 0;">
+        Radius (meters) :
+        <span id="radius-goes-here">100</span>
+      <p id="info" style="letter-spacing: .1rem;">Alarm will activate within the radius</p>
+      </p>
     </div>
+    <div id="message" style="display: none;"></div>
+    <input id="search" class="btn  btn-secondary" type="button" value="SEARCH" />
 
-    <div class="utility">
-      <div class="search-scope">
-        <input
-          type="range"
-          min="100"
-          max="1000"
-          value="100"
-          class="slider"
-          id="myRange"
-        />
-        <p id="rad-field" style="font-size: 2em; margin-bottom: 0;">
-          Radius (meters) :
-          <span id="radius-goes-here">100</span>
-          <p id="info" style="letter-spacing: .1rem;">Alarm will activate within the radius</p>
-        </p>
-      </div>
-      <div id="message" style="display: none;"></div>
-      <input
-        id="search"
-        class="btn  btn-secondary"
-        type="button"
-        value="SEARCH"
-      />
+    <input id="confirm" class="btn btn-primary" type="button" value="SET ALARM" />
+  </div>
+  <div id="child2">
+    <div id="map"></div>
+  </div>
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
 
-      <input
-        id="confirm"
-        class="btn btn-primary"
-        type="button"
-        value="SET ALARM"
-      />
-    </div>
-    <div id="child2">
-      <div id="map"></div>
-    </div>
-      <!---------------------------------------------->
-      <!-- Your own JavaScript functions go here    -->
-      <!---------------------------------------------->
-    
-      <!-- Link to scripts of your own -->
-      <script src="./scripts/firebaseAPI_BBY01.js"></script>
-      <script src="./scripts/skeleton.js"></script>
-      <script src="./scripts/map.js"></script>
-      <script src="./scripts/index.js"></script>
-  </body>
+  <!-- Link to scripts of your own -->
+  <script src="./scripts/firebaseAPI_BBY01.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/click.js"></script>
+</body>
+
 </html>
-

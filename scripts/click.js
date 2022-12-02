@@ -46,14 +46,6 @@ firebase.auth().onAuthStateChanged(user => {
             circle.setRadius(this.value);            
         }     
 })
-
-  //----------------------------------------------------------//
-  // SEACH BAR //
-
-
-
-
-
     
     //--------------------------------------
 // MAP:  get current geolocation
@@ -117,29 +109,12 @@ var destMarker //
       }
     }
 
-
-
-//---------------SEARCH BAR-------------------------------//
-
-
-
-
         // handle error case
         function onError() {
       message.classList.add('error');
       message.textContent = `Failed to get your location!`;
     }
 
-
-
-    // add search bar and declare it as variable
-
-
-
-    // add to firestore
-    //-----------------------------------------------
-// Create a "max" number of hike document objects
-//-----------------------------------------------
 function writeLocationData() {
     max = 100;
     //define a variable for the collection you want to create in Firestore to populate data
@@ -186,4 +161,10 @@ document.getElementById("confirm").addEventListener("click", (e) => {
   
 });
 console.log("after clicker");
+
+$("#search").click(function () {
+  location.href = "main.html";
+
+  console.log("clicked");
+});
 

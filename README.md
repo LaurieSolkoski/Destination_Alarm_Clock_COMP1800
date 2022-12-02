@@ -16,6 +16,7 @@ Technologies used for this project:
 * JavaScript
 * Bootstrap 
 * Leaflet API
+* Google Firebase (Authentication, Database and Hosting)
 	
 ## Content
 Content of the project folder:
