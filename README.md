@@ -49,7 +49,26 @@ Content of the project folder:
 
 It has the following subfolders and files:
 
+├── scripts                 # contains the following JS files:
+                                alex_test.js
+                                authentication.js
+                                index.js
+                                main.js
+                                map.js
+                                script.js
+                                settingspreferences.js
+                                skeleton.js
+                                slider.js
 
+                            These files are used in our html files in the above project folder contents section for map API usage, radius setting, and alarm implementation.
+
+├── images                  # contains our images, particularly the DAC logo. 
+
+
+├── styles                  # contains the following sheets:
+                                index.css
+                                settings.css
+                                style.css
 
 
 ```
