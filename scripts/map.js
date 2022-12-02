@@ -172,7 +172,7 @@ document.getElementById("confirm").addEventListener("click", (e) => {
             radius: radius
           }).then(function() {
             console.log("inside get");
-          window.location.href = "./alex_test.html"
+          window.location.href = "./alarm.html"
         })
       })
         
