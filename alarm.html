@@ -98,32 +98,4 @@
     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
   <script src="./scripts/alarm.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <script>
-    $("#confirm").click(function () {
-      location.href = "main.html";
-
-      console.log("clicked");
-    });
-
-    function onReady(callback) {
-      var intervalId = window.setInterval(function () {
-        if (document.getElementsByTagName("body")[0] !== undefined) {
-          window.clearInterval(intervalId);
-          callback.call(this);
-        }
-      }, 1000);
-    }
-
-    function setVisible(selector, visible) {
-      document.querySelector(selector).style.display = visible
-        ? "block"
-        : "none";
-    }
-
-    onReady(function () {
-      setVisible(".page", true);
-      setVisible("#loading", false);
-      setVisible(".utility", true);
-    });
-  </script>
 </body>
