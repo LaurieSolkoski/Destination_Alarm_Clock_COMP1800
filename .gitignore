@@ -3,6 +3,5 @@
 node_modules/
 .vscode/
 firebaseAPI_BBY01.js
-firestore.rules
-firebase.json
-firestore.indexes.json
+firebase
+.firebase
