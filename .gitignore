@@ -8,3 +8,4 @@ firebase.json
 firestore.indexes.json
 firebaserc
 .firebase
+hosting..cache

@@ -19,49 +19,9 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
-
   <link rel="stylesheet" href="./styles/index.css" />
-
   <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet" />
-  <style>
-    #loading {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(192, 192, 192, 0.5);
-      background-image: url("https://i.stack.imgur.com/MnyxU.gif");
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-    .utility {
-      z-index: 2;
-      display: none;
-    }
-
-    #loading h1 {
-      position: relative;
-      text-align: center;
-      top: 38%;
-    }
-
-    .leaflet-control-zoom {
-      display: none;
-    }
-
-    #navbarPlaceHolder {
-      z-index: 2;
-    }
-
-    #map {
-      z-index: 1;
-      height: 100vh !important;
-    }
-  </style>
+  <link rel="stylesheet" href="./styles/alarm.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
@@ -70,7 +30,6 @@
 
   <div class="utility">
     <div class="search-scope">
-
       <p style="font-size: 2em; margin-bottom: 0; color: rgb(46, 117, 46);">
         Alarm Set
       </p>
@@ -86,7 +45,11 @@
     <h1>Setting your alarm...</h1>
   </div>
 
+  <!-- alarm sound audio-->
   <audio id="alarm-sound" src="./audio/Analog-alarm-clock-bell-rings-short-sound-effect.mp3" preload="auto"></audio>
+  
+  <!-- scripts -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
