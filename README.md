@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This browser based web application is to give you the ability to set a location based alarm at a radius of choice, so that you can have an alarm that rings once you are at you destination rather than time amount of time you choose. 
 * Hi, my name is Alex. I'm excited about this project because it is an opportunity to develop our own web app.
 * Hi my name is Bardia. I'm excited about this project because I get to learn something new.
 * Hi my name is Laurie :) I'm excited to start this project because I get to *maybe* use geospatial analysis, which I sorta like doing
@@ -15,7 +15,7 @@ Technologies used for this project:
 * HTML, CSS
 * JavaScript
 * Bootstrap 
-* ...
+* Leaflet API
 	
 ## Content
 Content of the project folder:
