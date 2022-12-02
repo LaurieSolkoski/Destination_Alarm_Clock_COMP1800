@@ -28,6 +28,7 @@ $("#map").click(function () {
         currentUser.get()
             .then(userDoc => {
                 //get the data fields of the user
+                console.log("doc rad", userDoc.data().radius)
                 myradius = userDoc.data().radius;
                 console.log(myradius);
                 document.getElementById("myRange").value = myradius;
@@ -167,10 +168,11 @@ $("#map").click(function () {
             lng: dest.lng,
           })
           .then(function () {
+            console.log("rad pre-write", myradius)
             db.collection("users")
               .doc(user.uid)
               .update({
-                radius: dest.radius,
+                radius: myradius,
               })
               .then(function () {
                 console.log("inside get");

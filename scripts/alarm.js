@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(user => {
                             var destLng = userAlarm.data().lng;
                             var destLat = userAlarm.data().lat;
                             console.log(active);
-                            console.log(triggerRadius);
+                            console.log("rad", triggerRadius);
                             function onLocationFound(e) {
                                 const radius = e.accuracy / 2;
                         
