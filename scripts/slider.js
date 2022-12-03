@@ -1,3 +1,4 @@
+// dictates radius slider and circle functionailty.
 var makerjs = require('makerjs');
 var radius = 10
 function sliderChange(val)
