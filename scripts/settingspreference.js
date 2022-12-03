@@ -24,11 +24,11 @@ function populateInfo() {
                     console.log(document.getElementById("radiusRange").value);
                     document.getElementById("currentRadius").innerHTML = document.getElementById("radiusRange").value;
 
-                    
+
                 })
         } else {
             // No user is signed in.
-            console.log ("No user is signed in");
+            console.log("No user is signed in");
         }
     });
 }
@@ -39,9 +39,10 @@ populateInfo();
 function editUserInfo() {
     //Enable the form fields
     document.getElementById('settings').disabled = false;
- }
+}
 
- function saveUserInfo() {
+// saves current settings
+function saveUserInfo() {
     getAlarmSound = document.getElementById('alarmSound').value;       //get the value of the field with id="nameInput"
     getVolumeRange = document.getElementById('volumeRange').value;     //get the value of the field with id="schoolInput"
     getRadiusRange = document.getElementById('radiusRange').value;
@@ -51,18 +52,19 @@ function editUserInfo() {
         volumeRange: getVolumeRange,
         radius: getRadiusRange
     })
-    .then(() => {
-        console.log("Document successfully updated!");
-    })
+        .then(() => {
+            console.log("Document successfully updated!");
+        })
 
     document.getElementById('settings').disabled = true;
 }
 
+// these two functions save radius setting for click and touchend
 document.getElementById("radiusRange").addEventListener("click", (e) => {
-    document.getElementById("currentRadius").innerHTML = document.getElementById("radiusRange").value;    
+    document.getElementById("currentRadius").innerHTML = document.getElementById("radiusRange").value;
 });
 
 document.getElementById("radiusRange").addEventListener("touchend", (e) => {
-    document.getElementById("currentRadius").innerHTML = document.getElementById("radiusRange").value; 
-    console.log("touched");   
+    document.getElementById("currentRadius").innerHTML = document.getElementById("radiusRange").value;
+    console.log("touched");
 });

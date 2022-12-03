@@ -1,238 +1,239 @@
 @font-face {
-    font-family: "bardia_font";
-    src: url("/fonts/BebasNeue-Regular.otf");
-    font-weight: normal;
-    font-style: normal;
-  }
-  #logo {
-    position: fixed;
-    top: 5vh;
-    right: 2vh;
-    height: auto;
-    width: 17% !important;
-  }
+  font-family: "bardia_font";
+  src: url("/fonts/BebasNeue-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  * {
-    font-family: "bardia_font";
-  }
+#logo {
+  position: fixed;
+  top: 5vh;
+  right: 2vh;
+  height: auto;
+  width: 17% !important;
+}
 
-  .navbar {
-    position: absolute;
-  }
+* {
+  font-family: "bardia_font";
+}
 
-  .form-control {
-    border-width: 5px;
-    border-color: rgb(40, 52, 186);
-  }
+.navbar {
+  position: absolute;
+}
 
-  .display-4 {
-    text-align: center;
-    position: relative;
-    font-size: 2em;
-  }
+.form-control {
+  border-width: 5px;
+  border-color: rgb(40, 52, 186);
+}
 
-  .container h1 {
-    text-align: center;
-    position: relative;
-    top: 20px;
-  }
+.display-4 {
+  text-align: center;
+  position: relative;
+  font-size: 2em;
+}
 
-  #firebaseui-auth-container {
-    position: relative;
-    top: 120px;
-  }
+.container h1 {
+  text-align: center;
+  position: relative;
+  top: 20px;
+}
 
-  .lead {
-    text-align: center;
-    position: relative;
-    top: 20px;
-  }
+#firebaseui-auth-container {
+  position: relative;
+  top: 120px;
+}
 
-  body {
-    height: 100%;
-    margin: 0%;
-    overflow: hidden;
-  }
+.lead {
+  text-align: center;
+  position: relative;
+  top: 20px;
+}
 
-  .bg {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
+body {
+  height: 100%;
+  margin: 0%;
+  overflow: hidden;
+}
 
-  .input-group {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-  }
+.bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
 
-  .btn {
-    border-color: rgb(40, 52, 186);
-    border-width: 2px;
-  }
+.input-group {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
 
-  #map {
-    width: auto;
-    height: 100vh;
-  }
+.btn {
+  border-color: rgb(40, 52, 186);
+  border-width: 2px;
+}
 
+#map {
+  width: auto;
+  height: 100vh;
+}
+
+.utility {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 70%;
+  background-color: hsla(0, 3%, 30%, 0.3);
+  border-radius: 5%;
+  padding: 1%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  z-index: 1;
+}
+
+
+.child1 {
+  position: absolute;
+  background-color: hsla(0, 3%, 30%, 0.3);
+  border-radius: 5%;
+  left: 0;
+  right: 0;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 0;
+  width: 50%;
+  height: 25%;
+  z-index: 2;
+}
+
+#child2 {
+  position: relative;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+}
+
+#navbarPlaceholder {
+  z-index: 1;
+  position: absolute;
+}
+
+.leaflet-right {
+  top: 45%;
+  left: 50%;
+  width: 30em;
+  height: 18em;
+  margin-top: -9em;
+  margin-left: -15em;
+  position: fixed;
+}
+
+.leaflet-top {
+  top: 45%;
+  left: 50%;
+  width: 30em;
+  height: 18em;
+  margin-top: -9em;
+  margin-left: -15em;
+  position: fixed;
+}
+
+.leaflet-control-zoom {
+  display: none;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+#header {
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  top: 5vh;
+  left: 0;
+  right: 0;
+  z-index: 250;
+  background-color: hsla(0, 3%, 30%, 0.3);
+  border-radius: 5%;
+  width: 60%;
+}
+
+#navbarPlaceholder {
+  z-index: 251;
+  position: absolute;
+  top: 5vh;
+  left: 0;
+  right: 0;
+}
+
+body {
+  position: relative;
+}
+
+
+@media (max-width: 768px) {
   .utility {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 70%;
-    background-color: hsla(0, 3%, 30%, 0.3);
-    border-radius: 5%;
-    padding: 1%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    z-index: 1;
-  }
-  
-
-  .child1 {
-    position: absolute;
-    background-color: hsla(0, 3%, 30%, 0.3);
-    border-radius: 5%;
-    left: 0;
-    right: 0;
-    margin-top: 1%;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 0;
-    width: 50%;
-    height:25%;
-    z-index: 2;
+    bottom: 70%;
+    top: 68%;
+    height: 30vh;
+    font-size: 10pt;
   }
 
-  #child2 {
-    position: relative;
-    z-index: 0;
-  }
-
-  .container {
-    position: relative;
-  }
-
-  #navbarPlaceholder {
-    z-index: 1;
-    position: absolute;
-  }
-
-  .leaflet-right {
-    top: 45%;
-    left: 50%;
-    width: 30em;
-    height: 18em;
-    margin-top: -9em;
-    margin-left: -15em;
-    position: fixed;
-  }
-
-  .leaflet-top {
-    top: 45%;
-    left: 50%;
-    width: 30em;
-    height: 18em;
-    margin-top: -9em;
-    margin-left: -15em;
-    position: fixed;
-  }
-
-  .leaflet-control-zoom {
-    display: none;
-  }
-
-  .leaflet-control-attribution {
-    display: none;
+  #rad-field, #radius-goes-here {
+    font-size: 13pt !important;
   }
 
   #header {
-    text-align: center;
+    position: absolute;
+    top: 1vh;
+    height: 20%;
+    font-size: 10pt;
+    width: 50%;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  #map {
+    max-width: 100vw;
+  }
+
+  .leaflet-control.leaflet-bar.geoapify-leaflet-control {
+    width: 80%;
+    min-width: 0px;
     margin: 0 auto;
     position: absolute;
-    top: 5vh;
-    left: 0;
     right: 0;
-    z-index: 250;
-    background-color: hsla(0, 3%, 30%, 0.3);
+    left: 0;
+  }
+
+  .navbar-collapse.collapse.show {
+    background-color: white;
+    border: 1px solid black;
     border-radius: 5%;
-    width: 60%;
   }
 
-  #navbarPlaceholder {
-    z-index: 251;
-    position: absolute;
-    top: 5vh;
-    left: 0;
-    right: 0;
-  }
-
-  body {
+  #confirm {
     position: relative;
+    bottom: 2%;
+  }
+
+  #search {
+    position: relative;
+    bottom: 2%;
+  }
+
+  #info {
+    margin: 0 auto;
   }
 
 
-  @media (max-width: 768px) {
-    .utility {
-      position: absolute;
-      bottom: 70%;
-      top: 68%;
-      height: 30vh;
-      font-size: 10pt;
-    }
-
-    #rad-field, #radius-goes-here {
-      font-size: 13pt !important;
-    }
-
-    #header {
-      position: absolute;
-      top: 1vh;
-      height: 20%;
-      font-size: 10pt;
-      width: 50%;
-    }
-
-    #logo {
-      display: none;
-    }
-
-    #map {
-      max-width: 100vw;
-    }
-
-    .leaflet-control.leaflet-bar.geoapify-leaflet-control {
-      width: 80%;
-      min-width: 0px;
-      margin: 0 auto;
-      position: absolute;
-      right: 0;
-      left: 0;
-    }
-
-    .navbar-collapse.collapse.show {
-      background-color: white;
-      border: 1px solid black;
-      border-radius: 5%;
-    }
-
-    #confirm {
-      position: relative;
-      bottom: 2%;
-    }
-
-    #search {
-      position: relative;
-      bottom: 2%;
-    }
-
-    #info {
-      margin: 0 auto;
-    }
-
-    
-  }
+}

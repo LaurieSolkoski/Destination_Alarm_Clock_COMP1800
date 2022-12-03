@@ -1,29 +1,29 @@
 #logo {
-  position:absolute;
+  position: absolute;
   top: 0px;
   right: 0px;
 }
 
 .navbar {
-  position:relative;
+  position: relative;
 }
 
-.form-control{
-  border-width:5px;
+.form-control {
+  border-width: 5px;
   border-color: rgb(40, 52, 186);
 }
 
 
-.display-4{
+.display-4 {
   text-align: center;
   position: relative;
-  top:90px;
+  top: 90px;
 }
 
-.lead{
+.lead {
   text-align: center;
   position: relative;
-  top:90px;
+  top: 90px;
 }
 
 
@@ -38,20 +38,20 @@
 #firebaseui-auth-container {
   position: relative;
   top: 120px;
-  }
+}
 
 
-  .display-4{
-    text-align: center;
-    position: relative;
-    top:90px;
-  }
+.display-4 {
+  text-align: center;
+  position: relative;
+  top: 90px;
+}
 
-  .lead{
-    text-align: center;
-    position: relative;
-    top:90px;
-  }
+.lead {
+  text-align: center;
+  position: relative;
+  top: 90px;
+}
 
 
 body {
@@ -71,13 +71,13 @@ body {
   position: absolute;
 }
 
-.click-to-map{
+.click-to-map {
   text-align: center;
   position: relative;
   top: 100px;
 }
 
-.input-group{
+.input-group {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -126,14 +126,14 @@ svg {
 
 
 #circle {
-  width: 100px; 
-  height: 100px; 
-  background: red; 
+  width: 100px;
+  height: 100px;
+  background: red;
   border-radius: 100px;
-  position:relative;
+  position: relative;
   top: 30%;
   left: 40%;
-  filter:opacity(50%)!important;
+  filter: opacity(50%) !important;
 }
 
 .button {
@@ -149,21 +149,17 @@ svg {
   cursor: pointer;
   position: relative;
   left: 15%;
-  
+
 }
 
 .setalarm {
-  border-color: black!important;
+  border-color: black !important;
   background-color: grey;
   color: black;
   border-radius: 4px solid black;
 }
 
-.setalarm:hover{
+.setalarm:hover {
   background-color: blue;
   color: white;
 }
-
-
-
-

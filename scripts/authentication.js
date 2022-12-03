@@ -5,49 +5,41 @@ var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
       // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      //------------------------------------------------------------------------------------------
-      // The code below is modified from default snippet provided by the FB documentation.
-      //
-      // If the user is a "brand new" user, then create a new "user" in your own database.
-      // Assign this user with the name and email provided.
-      // Before this works, you must enable "Firestore" from the firebase console.
-      // The Firestore rules must allow the user to write. 
-      //------------------------------------------------------------------------------------------
       var user = authResult.user;
-        var settings = authResult.settings;                            // get the user object from the Firebase authentication database
-      if (authResult.additionalUserInfo.isNewUser) {         //if new user
-        db.collection("users").doc(user.uid).set({         //write to firestore. We are using the UID for the ID in users collection
-                    name: user.displayName,                    //"users" collection
-                    email: user.email,  
-                    alarmSound: "1",
-                    radius: "500",
-                    volumeRange: "3",                     //with authenticated user's ID (user.uid)                  
+      var settings = authResult.settings;
+      if (authResult.additionalUserInfo.isNewUser) {
+        // creates default collections and docs for new users.         
+        db.collection("users").doc(user.uid).set({
+          name: user.displayName,
+          email: user.email,
+          alarmSound: "1",
+          radius: "500",
+          volumeRange: "3",
         }).then(function () {
           db.collection("users").doc(user.uid).collection("alarms").doc("alarm1").set({
             active: true,
             lat: 49,
-            lng: -129 });
+            lng: -129
+          });
           console.log("New user added to firestore");
-               //re-direct to main.html after signup
+          //re-direct to main.html after signup
         }).then(function () {
-          window.location.assign("main.html");  
+          window.location.assign("main.html");
         })
           .catch(function (error) {
             console.log("Error adding new user: " + error);
           });
-            db.collection("users").doc(user.uid).collection("settings").add({
-                    alarmSound: settings.alarmSound,
-                    radiusRange: settings.radiusRange,
-                    volumeRange: settings.volumeRange,
-                }).then(function () {
-                  console.log("New settings added to firestore");
-                  window.location.assign("main.html");       //re-direct to main.html after signup
-              })
-              .catch(function (error) {
-                  console.log("Error adding new settings: " + error);
-              });
+        db.collection("users").doc(user.uid).collection("settings").add({
+          alarmSound: settings.alarmSound,
+          radiusRange: settings.radiusRange,
+          volumeRange: settings.volumeRange,
+        }).then(function () {
+          console.log("New settings added to firestore");
+          window.location.assign("main.html");       //re-direct to main.html after signup
+        })
+          .catch(function (error) {
+            console.log("Error adding new settings: " + error);
+          });
       } else {
         return true;
       }

@@ -1,37 +1,37 @@
 #loading {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(192, 192, 192, 0.5);
-    background-image: url("https://i.stack.imgur.com/MnyxU.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-  .utility {
-    z-index: 2;
-    display: none;
-  }
+.utility {
+  z-index: 2;
+  display: none;
+}
 
-  #loading h1 {
-    position: relative;
-    text-align: center;
-    top: 38%;
-  }
+#loading h1 {
+  position: relative;
+  text-align: center;
+  top: 38%;
+}
 
-  .leaflet-control-zoom {
-    display: none;
-  }
+.leaflet-control-zoom {
+  display: none;
+}
 
-  #navbarPlaceHolder {
-    z-index: 2;
-  }
+#navbarPlaceHolder {
+  z-index: 2;
+}
 
-  #map {
-    z-index: 1;
-    height: 100vh !important;
-  }
+#map {
+  z-index: 1;
+  height: 100vh !important;
+}
